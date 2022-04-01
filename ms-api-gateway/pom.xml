@@ -30,6 +30,11 @@
 
         <!--Custom dependencies-->
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <version>2.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-spring-boot-dependencies</artifactId>
             <version>3.13.0</version>
@@ -73,8 +78,16 @@
             <artifactId>camel-core-starter</artifactId>
             <version>3.13.0</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-resilience4j</artifactId>
+            <version>3.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-ehcache-starter</artifactId>
+            <version>3.13.0</version>
+        </dependency>
         <!--/Custom dependencies-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -89,6 +102,15 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
     </dependencies>
 

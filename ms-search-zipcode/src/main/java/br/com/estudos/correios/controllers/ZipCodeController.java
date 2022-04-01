@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,6 +21,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/zip-code")
 public class ZipCodeController {
+
+    @Value("${test.config}")
+    private String teste;
+
 
     private final ZipCodeSearchService zipCodeSearchService;
 
@@ -47,5 +52,10 @@ public class ZipCodeController {
     public ResponseEntity<List<ZipcodeSearchHistoryDTO>> getRecentSearchZipCode(){
         log.debug("Realizando a chamada do histórico de CEP.");
         return ResponseEntity.status(HttpStatus.OK).body(zipCodeSearchService.getRecentZipCodeSearches());
+    }
+
+    @GetMapping("/teste")
+    public String teste(){
+        return teste;
     }
 }

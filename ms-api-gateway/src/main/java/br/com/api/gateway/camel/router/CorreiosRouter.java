@@ -24,6 +24,7 @@ public class CorreiosRouter extends RouteBuilder {
                 .routeId("zipcode-get")
                 .streamCaching()
                 .convertBodyTo(String.class)
+                .circuitBreaker().resilience4jConfiguration().timeoutEnabled(true).timeoutDuration(2000).end()
                 .serviceCall("ms-search-zipcode/api/v1/zip-code?bridgeEndpoint=true")
                 .unmarshal().json()
                 .log("zipcode get: ${body}")
@@ -37,6 +38,7 @@ public class CorreiosRouter extends RouteBuilder {
                 .streamCaching()
                 .marshal().json()
                 .routeId("zipcode-post")
+                .circuitBreaker().resilience4jConfiguration().timeoutEnabled(true).timeoutDuration(2000).end()
                 .serviceCall("ms-search-zipcode/api/v1/zip-code?bridgeEndpoint=true")
                 .unmarshal().json().log("${body}")
                 .endRest();
