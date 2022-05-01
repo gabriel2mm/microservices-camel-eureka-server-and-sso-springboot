@@ -17,6 +17,8 @@ public class CamelContextConfig {
 
     @Bean
     public CamelContext camelContext() {
-        return new SpringCamelContext(context);
+        SpringCamelContext springCamelContext = new SpringCamelContext(context);
+        springCamelContext.setStreamCaching(true);
+        return springCamelContext;
     }
 }
